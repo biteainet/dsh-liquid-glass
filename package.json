@@ -1,13 +1,14 @@
 {
   "name": "dsh-liquid-glass",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "把 DeepSeek Harness 的全部 UI（输入框/按钮/面板/侧边栏等）变成 Apple 液态玻璃。使用真实开源实现 apple-liquid-glass-webgl@2.5.0（esbuild 打包内联，源码未修改）；另提供全局自定义背景（应用到整个 DSH 界面）与自绘玻璃风设置面板（右侧小球入口）。",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./cordis.patch.yml": "./cordis.patch.yml"
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
   },
   "files": [
     "lib",
@@ -15,6 +16,16 @@
     "README.md"
   ],
   "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-settings-plugins"
+      ],
+      "platform": "web"
+    },
     "bundle": {
       "patch": "./cordis.patch.yml"
     }
