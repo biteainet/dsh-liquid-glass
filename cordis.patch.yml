@@ -1,0 +1,6 @@
+# dsh-liquid-glass bundle patch —— 挂载进 profile 插件树。
+# host 半为空（无宿主服务），仅让客户端 bundle（dsh.client）被发现并注入浏览器。
+- insert:
+    - id: dsh-liquid-glass
+      name: dsh-liquid-glass
+      config: {}
